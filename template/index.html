@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Marks Predictor</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}?v=2">
+</head>
+<body>
+    <div class="app-backdrop"></div>
+    <div class="app">
+        <header class="site-header">
+            <h1>Student Marks Predictor</h1>
+            <div class="lead">Enter hours studied to get a marks prediction</div>
+        </header>
+
+        <main class="card">
+            <form class="predict-form" action="/predict" method="post">
+                <div class="form-group">
+                    <label for="hours">Hours Studied</label>
+                    <input type="number" id="hours" name="hours" step="0.1" required>
+                </div>
+
+                <div class="form-actions">
+                    <button class="btn-primary" type="submit">Predict Marks</button>
+                </div>
+            </form>
+
+            <div class="result">
+                <h2>Predicted Marks</h2>
+                <div class="score">{{ prediction }}</div>
+            </div>
+            
+        </main>
+
+        <footer class="site-footer">Keep going and keep working hard! Towards your dreams!!</footer>
+    </div>
+</body>
+</html>
